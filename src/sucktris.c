@@ -2,7 +2,7 @@
 #include "dbg.h"
 
 
-sucktris *sucktris_init(const char *title, int width, int height) {
+sucktris *sucktris_init(const char *title, int width, int height, bool fullscreen) {
 	sucktris *st = malloc(sizeof(sucktris));
 	if(!st) {
 		log_err("Failed to initialize sucktris\n");
@@ -11,7 +11,13 @@ sucktris *sucktris_init(const char *title, int width, int height) {
 
 	if(SDL_Init(SDL_INIT_EVERYTHING) == 0) {
 		log_info("SDL_Init done successfully\n");
-		st->window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+		st->window = SDL_CreateWindow(
+				title, 
+				SDL_WINDOWPOS_CENTERED,
+				SDL_WINDOWPOS_CENTERED, 
+				width, 
+				height, 
+				(fullscreen)?SDL_WINDOW_FULLSCREEN:SDL_WINDOW_SHOWN);
 		if(st->window) {
 			log_info("SDL_Window is created successfully\n");
 			st->renderer = SDL_CreateRenderer(st->window, -1, SDL_RENDERER_ACCELERATED);

@@ -7,7 +7,7 @@
 #include "sucktris.h"
 
 int main() {
-	sucktris *st = sucktris_init("Sucktris", 1280, 720);
+	sucktris *st = sucktris_init("Sucktris", 1280, 720, false);
 	if(!st) {
 		return -1;
 	}

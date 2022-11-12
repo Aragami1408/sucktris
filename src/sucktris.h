@@ -18,7 +18,7 @@ struct sucktris {
 	bool running;
 };
 
-sucktris *sucktris_init(const char *title, int width, int height);
+sucktris *sucktris_init(const char *title, int width, int height, bool fullscreen);
 
 void sucktris_handleEvents(sucktris *st);
 void sucktris_update(sucktris *st);
