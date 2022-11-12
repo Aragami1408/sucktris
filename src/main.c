@@ -6,13 +6,19 @@
 
 #include "sucktris.h"
 
-int main(int argc, char *argv[]) {
-	sucktris *st = NULL;
+int main() {
+	sucktris *st = sucktris_init("Sucktris", 1280, 720);
+	if(!st) {
+		return -1;
+	}
 
-	while(sucktris_isRunning(st)) {
+	while(st->running) {
 		sucktris_handleEvents(st);
 		sucktris_update(st);
 		sucktris_render(st);
-	}	
+	}
 
+	sucktris_quit(st);
+
+	return 0;
 }

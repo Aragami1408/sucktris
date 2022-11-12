@@ -18,12 +18,12 @@ struct sucktris {
 	bool running;
 };
 
-inline bool sucktris_isRunning(sucktris *st) {return st->running;}
+sucktris *sucktris_init(const char *title, int width, int height);
 
-sucktris *sucktris_init(int width, int height);
 void sucktris_handleEvents(sucktris *st);
 void sucktris_update(sucktris *st);
 void sucktris_render(sucktris *st);
+
 void sucktris_quit(sucktris *st);
 
 
