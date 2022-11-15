@@ -5,7 +5,6 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
-#include "board.h"
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -16,8 +15,6 @@ struct sucktris {
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 	SDL_Event event;
-
-	board *board;
 
 	bool running;
 };
@@ -62,7 +59,5 @@ void sucktris_render(sucktris *st);
  * @param st sucktris pointer
  */
 void sucktris_quit(sucktris *st);
-
-
 
 #endif
