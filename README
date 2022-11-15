@@ -1,0 +1,23 @@
+================
+SuckTris
+================
+
+**SuckTris** is a competitive block-stacking game that is open source and super portable. 
+It is written in pure C11 with SDL2 library. This game has two main game modes:
+1. Single Player (does not require network connection): 
+  * Sprint (40L)
+  * Blitz (2 min)
+  * Custom 
+  * Bot Training
+2. Multi Player (requires network connection):
+  * 1v1 battle
+  * Co-op battle
+
+Dependencies Requirements
+==========================
+This project requires SDL2, SDL2_image, SDL2_ttf 
+
+Installation
+============
+Just run `make` and then run `bin/sucktris` (`bin/sucktris_DEBUG` if you want debugging informations)
+
