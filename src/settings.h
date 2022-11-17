@@ -27,6 +27,7 @@ struct settings {
      int video_height;
 	 int video_matrix_row;
 	 int video_matrix_col;
+	 bool video_fullscreen;
 	
 };
 
