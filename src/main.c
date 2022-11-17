@@ -1,12 +1,23 @@
 #include <stdbool.h>
 
 
+#include "dbg.h"
 #include "sucktris.h"
+#include "settings.h"
+#include "ini.h"
 
 int main(int argc, char **argv) {
-	sucktris *st = sucktris_init("SuckTris", 1280,720, false);
+
+	settings user_config;	
+
+	if(ini_parse("res/settings.ini", settings_init, &user_config) < 0) {
+		log_err("Failed to load res/settings.ini\n");
+		return 1;
+	}
+
+	sucktris *st = sucktris_init();
 	if(!st) {
-		return -1;
+		return 1;
 	}
 	
 	const int FPS = 60;

@@ -9,6 +9,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#include "settings.h"
+#include "dbg.h"
+#include "ini.h"
+
+
 typedef struct sucktris sucktris;
 
 struct sucktris {
@@ -16,21 +21,19 @@ struct sucktris {
 	SDL_Renderer *renderer;
 	SDL_Event event;
 
+	settings user_config;
+
+
 	bool running;
 };
 
 /**
- * Initialize SuckTris's core structure consists of SDL_Window, SDL_Renderer and SDL_Event instance.
- *
- * @param title The title of the game window
- * @param width The width of the game window
- * @param height The height of the game window
- * @param fullscreen The game window's resolution will be set as full-screen if true
+ * Initialize SuckTris's core structure consists of SDL instances and entities
  *
  * @return a dynamically allocated sucktris instance if success, otherwise returns NULL
  *
  */
-sucktris *sucktris_init(const char *title, int width, int height, bool fullscreen);
+sucktris *sucktris_init();
 
 /**
  * Handle user events from peripherals.

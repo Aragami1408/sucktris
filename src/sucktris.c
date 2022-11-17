@@ -1,11 +1,15 @@
 #include "sucktris.h"
-#include "dbg.h"
 
 
-sucktris *sucktris_init(const char *title, int width, int height, bool fullscreen) {
+sucktris *sucktris_init() {
 	sucktris *st = malloc(sizeof(sucktris));
 	if(!st) {
 		log_err("Failed to initialize sucktris\n");
+		return NULL;
+	}
+
+	if(ini_parse("res/settings.ini",settings_init,&st->user_config) < 0) {
+		log_err("Failed to load 'res/settings.ini'\n");
 		return NULL;
 	}
 
@@ -15,12 +19,12 @@ sucktris *sucktris_init(const char *title, int width, int height, bool fullscree
 	} else log_info("SDL_Init done successfully\n");
 	
 	st->window = SDL_CreateWindow(
-			title, 
+			"SuckTris", 
 			SDL_WINDOWPOS_CENTERED,
 			SDL_WINDOWPOS_CENTERED, 
-			width, 
-			height, 
-			(fullscreen)?SDL_WINDOW_FULLSCREEN:SDL_WINDOW_SHOWN);
+			st->user_config.video_width, 
+			st->user_config.video_height, 
+			SDL_WINDOW_SHOWN);
 	if(!st->window) {
 		log_err("SDL_Window failed to be created (%s)\n", SDL_GetError());
 		return NULL;
