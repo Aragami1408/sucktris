@@ -5,6 +5,7 @@ SuckTris
 **SuckTris** is a competitive block-stacking game that is open source and super portable. 
 It is written in pure C11 with SDL2 library. This game has two main game modes:
 1. Single Player (does not require network connection): 
+  * Marathon (150L)
   * Sprint (40L)
   * Blitz (2 min)
   * Custom 
