@@ -2,7 +2,7 @@ CC=gcc
 
 LIBS=sdl2 SDL2_image SDL2_ttf
 
-CFLAGS=-Wall -Wextra -pedantic `pkgconf --cflags $(LIBS)`
+CFLAGS=-Wall -Wextra -pedantic -std=c11 `pkgconf --cflags $(LIBS)` 
 LDFLAGS=`pkgconf --libs $(LIBS)`
 
 SRC_DIR=src
