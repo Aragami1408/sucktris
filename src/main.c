@@ -8,20 +8,12 @@
 
 int main(int argc, char **argv) {
 
-	settings user_config;	
-
-	if(ini_parse("res/settings.ini", settings_init, &user_config) < 0) {
-		log_err("Failed to load res/settings.ini\n");
-		return 1;
-	}
-
 	sucktris *st = sucktris_init();
 	if(!st) {
 		return 1;
 	}
 	
-	const int FPS = 60;
-	const int frame_delay = 1000 / FPS;
+	const int frame_delay = 1000 / st->user_config.video_fps;
 	
 	Uint32 frame_start;
 	int frame_time;
