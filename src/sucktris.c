@@ -2,7 +2,7 @@
 
 
 sucktris *sucktris_init() {
-	sucktris *st = malloc(sizeof(sucktris));
+	sucktris *st = (sucktris *) malloc(sizeof(sucktris));
 	if(!st) {
 		log_err("Failed to initialize sucktris\n");
 		return NULL;

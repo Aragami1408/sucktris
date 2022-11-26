@@ -1,7 +1,7 @@
 #include "vec2f.h"
 
 vec2f *vec2f_init(float x, float y) {
-	vec2f *v = malloc(sizeof(vec2f));
+	vec2f *v = (vec2f *) malloc(sizeof(vec2f));
 
 	v->x = x;
 	v->y = y;
